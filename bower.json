@@ -5,6 +5,6 @@
     "./dist/angular-selectize.js"
   ],
   "dependencies": {
-    "selectize": ">=0.12.1"
+    "selectize": "0.12.4"
   }
 }
