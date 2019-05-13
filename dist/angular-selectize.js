@@ -17,6 +17,9 @@ angular.module('selectize', []).value('selectizeConfig', {}).directive("selectiz
       scope.config = scope.config || {};
 
       var isEmpty = function(val) {
+        if (val === null) {
+          val = undefined;
+        }
         return isNaN(val) && (val === undefined || val === null || !val.length); //support checking empty arrays
       };
 
