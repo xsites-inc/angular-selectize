@@ -20,7 +20,7 @@ angular.module('selectize', []).value('selectizeConfig', {}).directive("selectiz
         if (val === null) {
           val = undefined;
         }
-        return isNaN(val) && (val === undefined || val === null || !val.length); //support checking empty arrays
+        return (Array.isArray(val) && !val.length) || (isNaN(val)) && (val === undefined || val === null || !val.length); //support checking empty arrays
       };
 
       var toggle = function(disabled) {
