@@ -33,17 +33,19 @@ angular.module('selectize', []).value('selectizeConfig', {}).directive("selectiz
       };
 
       var setSelectizeOptions = function(curr, prev) {
-        angular.forEach(prev, function(opt){
-          if(curr.indexOf(opt) === -1){
-            var value = opt[settings.valueField];
-            selectize.removeOption(value, true);
-          }
-        });
+        if(curr) {
+          angular.forEach(prev, function(opt){
+            if(curr.indexOf(opt) === -1){
+              var value = opt[settings.valueField];
+              selectize.removeOption(value, true);
+            }
+          });
 
-        selectize.addOption(curr, true);
+          selectize.addOption(curr, true);
 
-        selectize.refreshOptions(false); // updates results if user has entered a query
-        setSelectizeValue();
+          selectize.refreshOptions(false); // updates results if user has entered a query
+          setSelectizeValue();
+        }
       }
 
       var setSelectizeValue = function() {
